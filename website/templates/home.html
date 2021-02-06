@@ -1,0 +1,115 @@
+
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<link rel="icon" href="{% static 'website/images/scissors.png' %}">
+
+<title>EasyAppt - fast and easy barber appointments!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="barber, hairstylist, hairsalon, book appointments, appointments, book">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<link href="{% static 'website/css/wickedpicker.css' %}" rel="stylesheet" type='text/css' media="all" />
+<link href="{% static 'website/css/style.css' %}" rel='stylesheet' type='text/css' />
+<!--fonts--> 
+<link href="//fonts.googleapis.com/css?family=Signika:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+<!--//fonts--> 
+</head>
+<body>
+<!--background-->
+
+<navbar>
+<ul class="nav-list">
+  <li class="nav-item"><a  href="#"><img src="{% static 'website/images/logo2.png' %}"></a></li>
+  <li class="nav-item"><a class="active" href="/">Home</a></li>
+
+  {% if user.is_authenticated %}
+  <li class="nav-item">Hello, {{user.first_name }} </li>
+  <li class="nav-item"><a href="accounts/logout"> Logout</a></li>
+  {% else %}
+  <li class="nav-item"><a href="accounts/register">Register</a></li>
+  <li class="nav-item"><a href="accounts/login">Login</a></li>
+  {% endif %}
+</ul>
+</navbar>
+
+<h1>EasyAppt - fast and easy barber appointments! </h1>
+
+    <div class="bg-agile">
+	<div class="book-appointment">
+	<h2>Make an appointment</h2>
+			<form action="#" method="post">
+				{% csrf_token %}
+			<div class="left-agileits-w3layouts same">
+				<div class="gaps">
+					<p>Your Name</p>
+					<input type="text" name="first_name" placeholder="{{user.first_name }}" required=""/>
+				</div>	
+				<div class="gaps">
+					<p>Email</p>
+					<input type="email" name="email" placeholder="{{user.email }}" required="" />
+				</div>	
+			</div>
+			<div class="right-agileinfo same">
+			<div class="gaps">
+				<p>Book Your Date</p>		
+				<input  id="datepicker1" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+			</div>
+			<div class="gaps">
+				<p>Book Your Time</p>		
+				<input type="text" id="timepicker" name="Time" class="timepicker form-control" value="">	
+			</div>
+			<div class="gaps">
+				<p>Services</p>	
+				<select class="form-control">
+					<option></option>
+					<option>Haircut with clippers</option>
+					<option>Haircut with clippers & scissors</option>
+					<option>Haircut and beard combo</option>
+					<option>Beard</option>
+					<option>Haircut & eyebrows</option>
+					<option>Dying gray hair</option>
+				</select>
+			</div>
+			<div class="gaps">
+				<p>Stylist</p>	
+				<select class="form-control">
+					<option></option>
+					<option>First Available</option>
+					<option>Keith Apelon</option>
+					<option>Frank Swan</option>
+					<option>Dario Tequila</option>
+				</select>
+			</div>
+			</div>
+			<div class="clear"></div>
+				<input type="submit" value="Make an appointment">
+			</form>
+		</div>
+   </div>
+   <!--copyright-->
+			<div class="copy w3ls">
+		       <p>&copy; 2021 EasyAppt | by <a href="https://github.com/Nikkoro" target="_blank">Nikkoro</a> </p>
+	        </div>
+		<!--//copyright-->
+		<script type="text/javascript" src="{% static 'website/js/jquery-2.1.4.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'website/js/wickedpicker.js' %}"></script>
+			<script type="text/javascript">
+				$('.timepicker').wickedpicker({twentyFour: false});
+			</script>
+		<!-- Calendar -->
+				<link rel="stylesheet" href="{% static 'website/css/jquery-ui.css' %}" />
+				<script src="{% static 'website/js/jquery-ui.js' %}"></script>
+				  <script>
+						  $(function() {
+							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
+						  });
+				  </script>
+			<!-- //Calendar -->
+
+</body>
+</html>
