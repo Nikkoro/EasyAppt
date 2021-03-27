@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="{% static 'website/css/style.css' %}" rel='stylesheet' type='text/css' />
+	
+	<title>Login</title>
+</head>
+<body>
+
+	<navbar>
+<ul class="nav-list">
+  <li class="nav-item"><a  href="#"><img src="{% static 'website/images/logo2.png' %}"></a></li>
+  <li class="nav-item"><a class="active" href="/">Home</a></li>
+</ul>
+</navbar>
+</div>
+</div>
+	<div class="container">
+		<div class="left-agileits-w3layouts same">
+	<div class="gaps">
+    <form method="POST">
+      <fieldset>
+        <legend>Form</legend>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </fieldset>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

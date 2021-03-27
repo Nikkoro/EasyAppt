@@ -1,4 +1,5 @@
 from django.db import models
+from booking.models import *
 
 # Create your models here.
 class Dest(models.Model):
